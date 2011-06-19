@@ -13,7 +13,7 @@ $plugins[0]->set('id',1);
 $plugins[0]->set('name','setLocales');
 $plugins[0]->set('description','Sets locales to french UTF-8.');
 $plugins[0]->set('plugincode', getSnippetContent($sources['plugins'] . 'plugin.setLocales.php'));
-$plugins[0]->set('category', 1);
+//$plugins[0]->set('category', 1);
 
 $events = include $sources['events'].'events.setLocales.php';
 if (is_array($events) && !empty($events)) {
