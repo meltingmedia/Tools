@@ -39,7 +39,7 @@ $properties = array(
     ),
     array(
         'name' => 'tElement',
-        'desc' => 'Snippet of chunk name',
+        'desc' => 'Snippet or chunk name',
         'type' => 'textfield',
         'options' => '',
         'value' => '',
