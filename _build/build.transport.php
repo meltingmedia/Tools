@@ -35,7 +35,7 @@ set_time_limit(0);
 define('PKG_NAME','Tools');
 define('PKG_NAME_LOWER',strtolower(PKG_NAME));
 define('PKG_VERSION','1.0.0');
-define('PKG_RELEASE','beta1');
+define('PKG_RELEASE','beta2');
 
 // define sources
 $root = dirname(dirname(__FILE__)).'/';
@@ -87,7 +87,15 @@ if (!is_array($snippets)) {
     $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($snippets).' snippets.');
 }
 
-// create category vehicle
+// add plugins
+$plugins = include $sources['data'].'transport.plugins.php';
+if (!is_array($plugins)) {
+    $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in plugins.');
+} else {
+    $category->addMany($plugins);
+    $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($plugins).' plugins.');
+}
+
 $attr = array(
     xPDOTransport::UNIQUE_KEY => 'category',
     xPDOTransport::PRESERVE_KEYS => false,
@@ -99,26 +107,11 @@ $attr = array(
             xPDOTransport::UPDATE_OBJECT => true,
             xPDOTransport::UNIQUE_KEY => 'name',
         ),
-    ),
-);
-$vehicle = $builder->createVehicle($category,$attr);
-
-// add plugins
-/*$plugins = include $sources['data'].'transport.plugins.php';
-if (!is_array($plugins)) {
-    $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in plugins.');
-} else {
-    $category->addMany($plugins);
-    $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($plugins).' plugins.');
-}
-
-// create category vehicle
-$attr = array(
-    xPDOTransport::UNIQUE_KEY => 'name',
-    xPDOTransport::PRESERVE_KEYS => false,
-    xPDOTransport::UPDATE_OBJECT => true,
-    xPDOTransport::RELATED_OBJECTS => true,
-    xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
+        'Plugins' => array(
+            xPDOTransport::PRESERVE_KEYS => false,
+            xPDOTransport::UPDATE_OBJECT => true,
+            xPDOTransport::UNIQUE_KEY => 'name',
+        ),
         'PluginEvents' => array(
             xPDOTransport::PRESERVE_KEYS => true,
             xPDOTransport::UPDATE_OBJECT => false,
@@ -126,8 +119,7 @@ $attr = array(
         ),
     ),
 );
-$vehicle = $builder->createVehicle($plugins,$attr);
-$builder->putVehicle($vehicle);*/
+$vehicle = $builder->createVehicle($category,$attr);
 
 $modx->log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
 $vehicle->resolve('file',array(

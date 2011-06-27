@@ -60,4 +60,15 @@ $snippets[2]->fromArray(array(
 $snippets[2]->setProperties($properties);
 unset($properties);*/
 
+$snippets[3]= $modx->newObject('modSnippet');
+$snippets[3]->fromArray(array(
+    'id' => 3,
+    'name' => 'om.locale',
+    'description' => 'Output modifier to bypass the setLocale plugin.',
+    'snippet' => getSnippetContent($sources['source_core'].'/elements/snippets/outputmodifier.locale.php'),
+),'',true,true);
+/*$properties = include $sources['build'].'properties/properties.tools.php';
+$snippets[3]->setProperties($properties);
+unset($properties);*/
+
 return $snippets;

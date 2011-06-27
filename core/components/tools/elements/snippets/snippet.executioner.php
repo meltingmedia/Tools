@@ -1,4 +1,18 @@
 <?php
+/*
+ * Executioner
+ *
+ * Author: Jason Coward
+ * http://www.jasoncoward.com/technology/2010/10/the-executioner-snippet.html
+ *
+ * Usage
+ *
+ * [[!Executioner?
+ *      &tElementClass=`modSnippet`
+ *      &tElement=`getResources`
+ *      [other getResources params…]
+ * ]]
+ */
 $output = '';
 $tElementClass = !empty($tElementClass) ? $tElementClass : 'modSnippet';
 

@@ -1,4 +1,21 @@
 <?php
+/*
+ * inc
+ *
+ * Includes & returns chunks, templates, snippets…
+ *
+ * Usage
+ *
+ * [[!inc?
+ *      &file=`[[++assets_path]]web/chunk.tpl`
+ * ]]
+ *
+ * [[!inc?
+ *      &file=`[[++core_path]]components/name/elements/snippets/snippet.php`
+ *      &type=`php`
+ *      [other snippet params…]
+ * ]]
+ */
 if (empty($file)) return '';
 $o = '';
 $modx->parser->processElementTags('',$file,true,true);
