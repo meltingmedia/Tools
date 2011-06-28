@@ -11,6 +11,7 @@
  * Usage example [[+placeholder]] being an unix timestamp :
  * [[+placeholder:om.locale=`Y M`]]
  */
+if (empty($options)) { return 'You need to define a date format!'; }
 
 setlocale(LC_ALL, 'en_EN.'. $modx->getOption('modx_charset'));
 $o = date($options, $input);

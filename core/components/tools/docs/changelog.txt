@@ -2,6 +2,14 @@
 Changelog for Tools.
 --------------------------------------------------------------------------------
 
+2011/xx/xx: 1.0.0-beta3
+========================================================
+- Added a changeSettings to set default emails content in
+French (forgot_login_email,signupemail_message,
+webpwdreminder_message,websignupemail_message). Can be
+extended to any system setting.
+
+
 2011/06/27: 1.0.0-beta2
 ========================================================
 - Added an output modifier to bypass the "setLocale" plugin
