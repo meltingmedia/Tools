@@ -4,6 +4,7 @@ Changelog for Tools.
 
 2011/xx/xx: 1.0.0-beta3
 ========================================================
+- Added nlWrapper output modifier
 - Added a changeSettings to set default emails content in
 French (forgot_login_email,signupemail_message,
 webpwdreminder_message,websignupemail_message). Can be
