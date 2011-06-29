@@ -9,13 +9,18 @@
  * Will wrap [[+placeholder]] new lines with <p></p> tags
  */
 
-$start = '<'.$options.'>';
-$end = '</'.$options.'>';
-$o = '';
+if ($input != '' && $options != '') {
 
-$strings = explode("\n",$input);
-foreach ($strings as $string) {
-    $o .= $start.$string.$end."\n";
+    $start = '<'.$options.'>';
+    $end = '</'.$options.'>';
+    $o = '';
+
+    $strings = explode("\n",$input);
+    foreach ($strings as $string) {
+        $o .= $start.$string.$end."\n";
+    }
+
+    return $o;
+} else {
+    return $input;
 }
-
-return $o;
