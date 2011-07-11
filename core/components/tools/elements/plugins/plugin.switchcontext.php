@@ -3,6 +3,9 @@
  * Switch the context according to the domain/subdomain
  *
  */
+if ($modx->context->get('key') == 'mgr') {
+    return;
+}
 
 switch(strtolower(MODX_HTTP_HOST)) {
     case 'dns.tld1:80':

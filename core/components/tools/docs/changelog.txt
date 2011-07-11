@@ -4,6 +4,7 @@ Changelog for Tools.
 
 2011/xx/xx: 1.0.0-beta3
 ========================================================
+- Modified switchContext to prevent conflict within the manager
 - Added redirect snippet
 - Added switchContext plugin for multi context installs
 - Added nlWrapper output modifier
