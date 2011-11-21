@@ -25,7 +25,7 @@ if (empty($path) || empty($path_url) || empty($field)) {
 
 if(!empty($fieldValue['name'])) {
     /**
-     * array $photo
+     * array $fieldValue
      * [name], [type], [tmp_name], [error], [size]
      */
     // @TODO: define some allowed file extensions
